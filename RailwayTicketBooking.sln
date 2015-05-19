@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayTicketBooking", "RailwayTicketBooking\RailwayTicketBooking.csproj", "{2E7910B9-5527-45EC-BE51-A4909E56CD0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayTicketBooking.Tests", "RailwayTicketBooking.Tests\RailwayTicketBooking.Tests.csproj", "{1F5ED05A-EC5E-41AF-9786-09E48672B489}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E7910B9-5527-45EC-BE51-A4909E56CD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7910B9-5527-45EC-BE51-A4909E56CD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7910B9-5527-45EC-BE51-A4909E56CD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7910B9-5527-45EC-BE51-A4909E56CD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5ED05A-EC5E-41AF-9786-09E48672B489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5ED05A-EC5E-41AF-9786-09E48672B489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5ED05A-EC5E-41AF-9786-09E48672B489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5ED05A-EC5E-41AF-9786-09E48672B489}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

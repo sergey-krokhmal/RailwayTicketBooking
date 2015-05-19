@@ -1,0 +1,177 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #e5f6f3;
+    margin: 0px;
+}
+
+#page {
+    background-color: white;
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*Styles for header elements*/
+
+header {
+    background: #71CD90;
+    height: 150px;
+    width: 900px;
+}
+
+#logo{
+    background: url("/Content/Images/Logo.png") no-repeat;
+    height: 140px;
+    width: 255px;
+    float: left;
+    margin: 5px 10px;
+}
+
+/* Styles of navigation*/
+
+#menu {
+    height: 40px;
+    width: 900px;
+    margin-top: 5px;
+    padding-left: 1px;
+    
+    text-shadow: -1px -1px -1px #000;
+}
+
+.link_button {
+    background: #5194c1;
+    height: 40px;
+    margin-right: 2px;
+    width: 178px;
+    text-align: center;
+    line-height: 35px;
+    float: left;
+    font-family: Calibri;
+    font-size: 16pt;
+    font-weight: bold;
+    color: white;
+}
+
+.link_button:hover {
+    background: #1c5983;
+}
+
+/*Left side styles*/
+#left_side {
+    border-right: dotted #287135 thin;
+    width: 169px;
+    height: 500px;
+    float: left;
+}
+
+#whether {
+    width: 150px;
+    height: auto;
+    margin: 0px auto;
+}
+
+#watch {
+    margin: 10px auto 0px;
+    width: 100px;
+    height: auto;
+    font-family: Tahoma;
+}
+
+/*Content styles*/
+#content {
+    background-color: white;
+    margin-top: 5px;
+    width: 100%;
+    float: left;
+}
+
+/*Main side style*/
+
+#main_side {
+    padding-left: 10px;
+    width: 720px;
+    height: 500px;
+    float: left;
+}
+
+/*Text styles*/
+
+h1 {
+    line-height: 35px;
+    text-shadow: 0.1em 0.1em 0.2em #333;
+    font-family: 'Bookman Old Style';
+    font-style: italic;
+    font-weight: bold;
+    font-size: xx-large;
+    color: white;
+    margin: 15px 10px;
+    width: 200px;
+    float: left;
+}
+
+h2 {
+    color: #392f2f;
+    font-family: Calibri;
+    font-size:16pt;
+    margin-left: 20px;
+}
