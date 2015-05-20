@@ -5,16 +5,20 @@ namespace RailwayTicketBooking.Models
 {
     public class AccountManager
     {
-        public static void RegisterUser(LoginViewModel logModel)
+        public static void RegisterUser(RegistrationData regData)
         {
             Railway de = new Railway();
-            if (!UserExist(logModel.Login))
+            if (regData.Password != regData.PasswordReplay)
+            {
+                throw new Exception("Пароли не совпадают");
+            }
+            if (!UserExist(regData.Login))
             {
                 User user = new User();
                 user.Id_UserRole = 2;
-                user.Login = logModel.Login;
-                user.Name = logModel.Name;
-                user.Password = logModel.Password;
+                user.Login = regData.Login;
+                user.Name = regData.Name;
+                user.Password = regData.Password;
                 de.User.Add(user);
             }
             else

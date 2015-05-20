@@ -1,4 +1,5 @@
 ﻿using RailwayTicketBooking.Models;
+using System;
 using System.Web.Mvc;
 
 namespace RailwayTicketBooking.Controllers
@@ -34,9 +35,15 @@ namespace RailwayTicketBooking.Controllers
         [HttpPost]
         public ActionResult Registration(RegistrationData regData)
         {
-            int errorCode = AccountManager.RegisterUser()
-            ModelState.AddModelError("", "Invalid username or password.");
-            return View();
+            try
+            {
+                AccountManager.RegisterUser(regData);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View(regData);
         }
     }
 }
