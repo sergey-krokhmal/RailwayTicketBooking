@@ -17,8 +17,17 @@ header, footer, nav, section {
     display: block;
 }
 
+hr {
+    color: #287135;
+    border-style:dotted;
+}
+
 a {
     text-decoration: none;
+}
+
+tr {
+    height: 30px;
 }
 
 /* Styles for basic forms

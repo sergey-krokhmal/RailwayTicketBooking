@@ -5,7 +5,7 @@ namespace RailwayTicketBooking.Models
 {
     public class AccountManager
     {
-        public static void RegisterUser(RegistrationData regData)
+        public static bool RegisterUser(RegistrationData regData)
         {
             Railway de = new Railway();
             if (regData.Password != regData.PasswordReplay)
@@ -15,17 +15,23 @@ namespace RailwayTicketBooking.Models
             if (!UserExist(regData.Login))
             {
                 User user = new User();
-                user.Id_UserRole = 2;
+                user.Id_UserRole = UserRole.GetIdByName(UserRoles.User.ToString());
                 user.Login = regData.Login;
-                user.Name = regData.Name;
                 user.Password = regData.Password;
+                user.Name = regData.Name;
+                user.Surname = regData.Surname;
+                user.Patronymic = regData.Patronymic;
                 de.User.Add(user);
+                if (de.SaveChanges() > 0)
+                {
+                    return true;
+                }
             }
             else
             {
                 throw new Exception("Пользователь с таким логином уже существует");
             }
-
+            return false;
         }
 
         public static bool UserExist(string login)

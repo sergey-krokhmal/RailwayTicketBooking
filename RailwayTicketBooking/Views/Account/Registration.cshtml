@@ -9,21 +9,65 @@
 
 @using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { @id = "reg_form" }))
 {
-    <hr />
+    <hr noshade />
     @Html.ValidationSummary()
-    <fieldset>
-        @Html.LabelFor(r => r.Login, new {@class = "editor-label"})
-        @Html.TextBoxFor(r => r.Login, new { @id = "editor-field" })
-        @Html.LabelFor(r => r.Password, new { @class = "editor-label" })
-        @Html.TextBoxFor(r => r.Password, new { @id = "editor-field" })
-        @Html.LabelFor(r => r.PasswordReplay, new { @class = "editor-label" })
-        @Html.TextBoxFor(r => r.PasswordReplay, new { @id = "editor-field" })
-        @Html.LabelFor(r => r.Surname, new { @class = "editor-label" })
-        @Html.TextBoxFor(r => r.Surname, new { @id = "editor-field" })
-        @Html.LabelFor(r => r.Name, new { @class = "editor-label" })
-        @Html.TextBoxFor(r => r.Name, new { @id = "editor-field" })
-        @Html.LabelFor(r => r.Patronymic, new { @class = "editor-label" })
-        @Html.TextBoxFor(r => r.Patronymic, new { @id = "editor-field" })
-        <button type="submit">Регистрация</button>
+    <fieldset title="Форма регистрации">
+        <legend>Форма регистрации</legend>
+        <table id="reg_table">
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.Login, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(r => r.Login, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.Password, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.PasswordFor(r => r.Password, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.PasswordReplay, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.PasswordFor(r => r.PasswordReplay, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.Surname, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(r => r.Surname, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.Name, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(r => r.Name, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(r => r.Patronymic, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(r => r.Patronymic, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Регистрация</button>
+                </td>
+            </tr>
+        </table>
     </fieldset>
 }

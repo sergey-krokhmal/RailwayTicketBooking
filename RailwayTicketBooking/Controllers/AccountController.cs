@@ -37,7 +37,14 @@ namespace RailwayTicketBooking.Controllers
         {
             try
             {
-                AccountManager.RegisterUser(regData);
+                if (ModelState.IsValid)
+                {
+                    if (AccountManager.RegisterUser(regData))
+                    {
+                        Message msg = new Message("Регистрация завершена", "Вы успешно зарегистрировали учетную запись");
+                        return RedirectToAction("Index", "Message", msg);
+                    }
+                }
             }
             catch (Exception ex)
             {
