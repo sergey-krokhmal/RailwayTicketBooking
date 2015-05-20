@@ -1,0 +1,8 @@
+﻿@model RailwayTicketBooking.Models.LoginViewModel
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "login" }))
+{
+    @Html.TextBoxFor(Model => Model.Login, new { @id = "tb_login" })
+    @Html.TextBoxFor(Model => Model.Password, new { @id = "tb_password" })
+    <button type="submit">Войти</button>
+}

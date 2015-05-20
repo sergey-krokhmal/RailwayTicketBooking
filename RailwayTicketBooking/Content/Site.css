@@ -46,7 +46,15 @@ textarea {
     margin: 0.5em 0 0 0;
 }
 
+button {
+    background-color: #5194c1;
+    width: 120px;
+    height: 40px;
+}
 
+button:hover {
+    background-color: #1c5983;
+}
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error {
@@ -94,8 +102,6 @@ header {
     width: 900px;
     margin-top: 5px;
     padding-left: 1px;
-    
-    text-shadow: -1px -1px -1px #000;
 }
 
 .link_button {
@@ -119,7 +125,7 @@ header {
 /*Left side styles*/
 #left_side {
     border-right: dotted #287135 thin;
-    width: 169px;
+    width: 179px;
     height: 500px;
     float: left;
 }
@@ -127,7 +133,7 @@ header {
 #whether {
     width: 150px;
     height: auto;
-    margin: 0px auto;
+    margin: 10px auto 0px;
 }
 
 #watch {
@@ -135,6 +141,12 @@ header {
     width: 100px;
     height: auto;
     font-family: Tahoma;
+    text-shadow: 1px -1px -1px #333;
+}
+
+#login {
+    width: 179px;
+    background-color: #71CD90;
 }
 
 /*Content styles*/
@@ -149,7 +161,7 @@ header {
 
 #main_side {
     padding-left: 10px;
-    width: 720px;
+    width: 710px;
     height: 500px;
     float: left;
 }
