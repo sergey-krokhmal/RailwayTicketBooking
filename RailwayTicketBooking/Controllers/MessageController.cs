@@ -9,16 +9,12 @@ namespace RailwayTicketBooking.Controllers
 {
     public class MessageController : Controller
     {
-        //
-        // GET: /Message/
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        public ActionResult Index(Message msg)
+        public MessageController() { }
+
+        public ActionResult Index(string title, string body)
         {
-            ViewBag.Title = msg.Title;
+            Message msg = new Message(title, body);
             return View(msg);
         }
     }

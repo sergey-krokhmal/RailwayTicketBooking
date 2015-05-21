@@ -10,6 +10,12 @@ namespace RailwayTicketBooking.Models
         public string Title { get; private set; }
         public string Body { get; private set; }
 
+        public Message()
+        {
+            Title = "";
+            Body = "";
+        }
+
         public Message(string title, string body)
         {
             Title = title;
