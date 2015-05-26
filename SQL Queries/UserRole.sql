@@ -1,4 +1,4 @@
-USE [Diplom]
+USE [RW]
 GO
 
 /****** Object:  Table [dbo].[UserRole]    Script Date: 20.05.2015 17:59:49 ******/
@@ -26,4 +26,9 @@ GO
 SET ANSI_PADDING OFF
 GO
 
+INSERT INTO [dbo].UserRole
+VALUES
+	('Admon', 'Может всё'),
+	('Moderator', 'Может не всё'),
+	('User', 'Может мало')
 

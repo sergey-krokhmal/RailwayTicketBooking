@@ -7,7 +7,7 @@ namespace RailwayTicketBooking.Models
     {
         public static bool RegisterUser(RegistrationData regData)
         {
-            Railway de = new Railway();
+            RW de = new RW();
             if (regData.Password != regData.PasswordReplay)
             {
                 throw new Exception("Пароли не совпадают");
@@ -36,7 +36,7 @@ namespace RailwayTicketBooking.Models
 
         public static bool UserExist(string login)
         {
-            Railway de = new Railway();
+            RW de = new RW();
             int userCount = de.User.Count(u => u.Login == login);
             if (userCount > 0)
             {

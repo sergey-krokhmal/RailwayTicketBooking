@@ -1,4 +1,4 @@
-USE [Diplom]
+USE [RW]
 GO
 
 /****** Object:  Table [dbo].[User]    Script Date: 20.05.2015 17:58:28 ******/
