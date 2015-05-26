@@ -73,10 +73,6 @@ namespace RailwayTicketBooking.Controllers
                     AccountManager am = new AccountManager();
                     if (am.RegisterUser(regData))
                     {
-<<<<<<< HEAD
-                        Message msg = new Message("Регистрация завершена", "Вы успешно зарегистрировали учетную запись. Теперь вы можете войти в систему, используя логин и пароль");
-=======
->>>>>>> origin/kowalsky
                         return RedirectToAction("Index", "Message", new { title = "Регистрация завершена", body = "Вы успешно зарегистрировали учетную запись" });
                     }
                 }

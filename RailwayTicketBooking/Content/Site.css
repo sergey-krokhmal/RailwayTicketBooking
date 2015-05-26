@@ -153,8 +153,8 @@ header {
     text-shadow: 1px -1px -1px #333;
 }
 
-#login {
-    width: 179px;
+div#user_card {
+    width: 159px;
     background-color: #71CD90;
 }
 

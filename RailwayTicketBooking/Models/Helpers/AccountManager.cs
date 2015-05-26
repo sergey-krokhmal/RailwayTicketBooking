@@ -51,21 +51,21 @@ namespace RailwayTicketBooking.Models
 
         public int GetIdByLogin(string login)
         {
-            Railway de = new Railway();   
+            RW de = new RW();   
             int userId = de.User.Where(u => u.Login == login).Select(u => u.Id).First();
             return userId;
         }
 
         public LoggedUser GetLoggedUserById(int id)
         {
-            Railway rw = new Railway();
+            RW rw = new RW();
             User user = rw.User.Where(u => u.Id == id).First();
             return new LoggedUser(user.Id, user.Login, user.Password);
         }
 
         public LoggedUser GetLoggedUser(LoginViewModel loginData)
         {
-            Railway rw = new Railway();
+            RW rw = new RW();
             List<User> users = rw.User.Where(u => u.Login == loginData.Login && u.Password == loginData.Password).ToList();
             if (users.Count == 0)
             {
