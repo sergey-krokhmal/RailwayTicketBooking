@@ -31,30 +31,37 @@ namespace RailwayTicketBooking.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel loginData)
         {
-            AccountManager am = new AccountManager();
-            string msgTitle;
-            string msgBody;
-            if (am.UserExist(loginData.Login))
+            if (Request.Path == "/Account/Login")
             {
-                LoggedUser user = am.GetLoggedUser(loginData);
-                if (user == null)
+                AccountManager am = new AccountManager();
+                string msgTitle;
+                string msgBody;
+                if (am.UserExist(loginData.Login))
                 {
-                    msgTitle = "Ошибка входа в систему";
-                    msgBody = "Вы ввели неправильный логин или пароль";
+                    LoggedUser user = am.GetLoggedUser(loginData);
+                    if (user == null)
+                    {
+                        msgTitle = "Ошибка входа в систему";
+                        msgBody = "Вы ввели неправильный логин или пароль";
+                    }
+                    else
+                    {
+                        Session["user"] = user;
+                        msgTitle = "Вход выполнен";
+                        msgBody = "Вы успешно вошли в систему";
+                    }
                 }
                 else
                 {
-                    Session["user"] = user;
-                    msgTitle = "Вход выполнен";
-                    msgBody = "Вы успешно вошли в систему";
+                    msgTitle = "Ошибка входа в систему";
+                    msgBody = "Вы ввели неправильный логин или не зарегистрированы";
                 }
+                return RedirectToAction("Index", "Message", new { title = msgTitle, body = msgBody });
             }
             else
             {
-                msgTitle = "Ошибка входа в систему";
-                msgBody = "Вы ввели неправильный логин или не зарегистрированы";
+                return PartialView();
             }
-            return RedirectToAction("Index", "Message", new { title = msgTitle, body = msgBody });
         }
 
         [HttpGet]

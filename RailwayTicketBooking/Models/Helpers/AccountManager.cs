@@ -9,16 +9,16 @@ namespace RailwayTicketBooking.Models
         public bool RegisterUser(RegistrationData regData)
         {
             RW de = new RW();
-            if (regData.Password != regData.PasswordReplay)
+            if (regData.RegPassword != regData.PasswordReplay)
             {
                 throw new Exception("Пароли не совпадают");
             }
-            if (!UserExist(regData.Login))
+            if (!UserExist(regData.RegLogin))
             {
                 User user = new User();
                 user.Id_UserRole = UserRole.GetIdByName(UserRoles.User.ToString());
-                user.Login = regData.Login;
-                user.Password = regData.Password;
+                user.Login = regData.RegLogin;
+                user.Password = regData.RegPassword;
                 user.Name = regData.Name;
                 user.Surname = regData.Surname;
                 user.Patronymic = regData.Patronymic;

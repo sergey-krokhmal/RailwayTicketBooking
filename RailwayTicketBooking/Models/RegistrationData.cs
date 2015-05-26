@@ -6,12 +6,12 @@ namespace RailwayTicketBooking.Models
     {
         [Required(ErrorMessage = "Поле Логин обязательное")]
         [Display(Name = "Логин")]
-        public string Login { get; set; }
+        public string RegLogin { get; set; }
 
         [Required(ErrorMessage = "Поле Пароль обязательное")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
-        public string Password { get; set; }
+        public string RegPassword { get; set; }
 
         [Required(ErrorMessage = "Поле Повторить пароль обязательное")]
         [DataType(DataType.Password)]

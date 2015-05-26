@@ -16,50 +16,50 @@
         <table id="reg_table">
             <tr>
                 <td>
-                    @Html.LabelFor(r => r.Login, new { @class = "editor-label" })
+                    @Html.LabelFor(Model => Model.RegLogin, new { @class = "editor-label" })
                 </td>
                 <td>
-                    @Html.TextBoxFor(r => r.Login, new { @class = "editor-field" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(r => r.Password, new { @class = "editor-label" })
-                </td>
-                <td>
-                    @Html.PasswordFor(r => r.Password, new { @class = "editor-field" })
+                    @Html.TextBoxFor(Model => Model.RegLogin, new { @class = "editor-field" })
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.LabelFor(r => r.PasswordReplay, new { @class = "editor-label" })
+                    @Html.LabelFor(Model => Model.RegPassword, new { @class = "editor-label" })
                 </td>
                 <td>
-                    @Html.PasswordFor(r => r.PasswordReplay, new { @class = "editor-field" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(r => r.Surname, new { @class = "editor-label" })
-                </td>
-                <td>
-                    @Html.TextBoxFor(r => r.Surname, new { @class = "editor-field" })
+                    @Html.PasswordFor(Model => Model.RegPassword, new { @class = "editor-field" })
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.LabelFor(r => r.Name, new { @class = "editor-label" })
+                    @Html.LabelFor(Model => Model.PasswordReplay, new { @class = "editor-label" })
                 </td>
                 <td>
-                    @Html.TextBoxFor(r => r.Name, new { @class = "editor-field" })
+                    @Html.PasswordFor(Model => Model.PasswordReplay, new { @class = "editor-field" })
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.LabelFor(r => r.Patronymic, new { @class = "editor-label" })
+                    @Html.LabelFor(Model => Model.Surname, new { @class = "editor-label" })
                 </td>
                 <td>
-                    @Html.TextBoxFor(r => r.Patronymic, new { @class = "editor-field" })
+                    @Html.TextBoxFor(Model => Model.Surname, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Name, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Name, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Patronymic, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Patronymic, new { @class = "editor-field" })
                 </td>
             </tr>
             <tr>
