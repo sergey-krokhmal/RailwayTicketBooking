@@ -12,9 +12,5 @@ namespace RailwayTicketBooking.Models
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
-
-        [Required]
-        [Display(Name = "Имя")]
-        public string Name { get; set; }
     }
 }

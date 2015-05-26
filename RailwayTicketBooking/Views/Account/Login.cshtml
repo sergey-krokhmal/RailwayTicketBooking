@@ -1,1 +1,49 @@
-﻿<h2>Hello</h2>
+﻿@model RailwayTicketBooking.Models.LoginViewModel
+
+@if (Session["user_id"] == null)
+{
+    using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "log_form" }))
+    {
+        <fieldset title="Вход в систему">
+            <table id="log_table">
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Login, new { @class = "editor-label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.Login, new { @class = "editor-field" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Password, new { @class = "editor-label" })
+                    </td>
+                    <td>
+                        @Html.PasswordFor(Model => Model.Password, new { @class = "editor-field" })
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Войти</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+}
+else
+{
+    <table id="user_card">
+        <tr>
+            <td>
+                @Html.Label(Model.Login)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Выйти</button>
+            </td>
+        </tr>
+    </table>
+}
