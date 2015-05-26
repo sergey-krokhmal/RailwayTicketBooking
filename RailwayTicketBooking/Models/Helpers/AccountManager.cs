@@ -5,7 +5,7 @@ namespace RailwayTicketBooking.Models
 {
     public class AccountManager
     {
-        public static bool RegisterUser(RegistrationData regData)
+        public bool RegisterUser(RegistrationData regData)
         {
             Railway de = new Railway();
             if (regData.Password != regData.PasswordReplay)
@@ -34,7 +34,7 @@ namespace RailwayTicketBooking.Models
             return false;
         }
 
-        public static bool UserExist(string login)
+        public bool UserExist(string login)
         {
             Railway de = new Railway();
             int userCount = de.User.Count(u => u.Login == login);
@@ -46,6 +46,20 @@ namespace RailwayTicketBooking.Models
             {
                 return false;
             }
+        }
+
+        public int GetIdByLogin(string login)
+        {
+            Railway de = new Railway();   
+            int userId = de.User.Where(u => u.Login == login).Select(u => u.Id).First();
+            return userId;
+        }
+
+        public LoggedUser GetLoggedUserById(int id)
+        {
+            Railway rw = new Railway();
+            User user = rw.User.Where(u => u.Id == id).First();
+            return new LoggedUser(user.Id, user.Login, user.Password);
         }
     }
 }

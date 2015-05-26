@@ -13,16 +13,33 @@ namespace RailwayTicketBooking.Controllers
             return PartialView();
         }
 
-        [HttpPost]
-        public ActionResult Login(LoginViewModel model)
+        [HttpGet]
+        public ActionResult Login()
         {
-            if (AccountManager.UserExist(model.Login))
+            if (Session["user_id"] == null)
             {
-                return PartialView(model);
+                return PartialView();
             }
             else
             {
-                return RedirectToAction("Index");
+                AccountManager am = new AccountManager();
+                LoggedUser lu = am.GetLoggedUserById((int)Session["user_id"]);
+                return PartialView("_UserCard", lu);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            AccountManager am = new AccountManager();
+            if (am.UserExist(model.Login))
+            {
+                Session["user_id"] = am.GetIdByLogin(model.Login);
+                return RedirectToAction("Index", "Message", new { title = "Вход выполнен", body = "Вы успешно вошли в систему" });
+            }
+            else
+            {
+                return RedirectToAction("Index", "Message", new { title = "Ошибка входа в систему", body = "Вы ввели неправильный логин или еще не зарегистрировались" });
             }
         }
 
@@ -39,9 +56,9 @@ namespace RailwayTicketBooking.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (AccountManager.RegisterUser(regData))
+                    AccountManager am = new AccountManager();
+                    if (am.RegisterUser(regData))
                     {
-                        Message msg = new Message("Регистрация завершена", "Вы успешно зарегистрировали учетную запись");
                         return RedirectToAction("Index", "Message", new { title = "Регистрация завершена", body = "Вы успешно зарегистрировали учетную запись" });
                     }
                 }

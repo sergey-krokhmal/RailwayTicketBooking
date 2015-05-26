@@ -11,6 +11,13 @@ namespace RailwayTicketBooking.Models
         public string Login { get { return login; } }
         public string Password { get { return password; } }
 
+        public LoggedUser()
+        {
+            id = 0;
+            login = "";
+            password = "";
+        }
+
         public LoggedUser(int id, string login, string password)
         {
             this.id = id;
