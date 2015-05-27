@@ -24,6 +24,7 @@ hr {
 
 a {
     text-decoration: none;
+    color: #232323;
 }
 
 tr {
@@ -57,12 +58,18 @@ textarea {
 
 button {
     background-color: #5194c1;
-    width: 120px;
-    height: 40px;
+    border: medium none;
+    color: white;
+    font-family: Calibri;
+    font-size: 12pt;
+    font-weight: bold;
+    height: 30px;
+    margin: 10px auto 5px;
+    width: 140px;
 }
 
 button:hover {
-    background-color: #1c5983;
+    background-color: #206697;
 }
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -128,7 +135,7 @@ header {
 }
 
 .link_button:hover {
-    background: #1c5983;
+    background: #206697;
 }
 
 /*Left side styles*/
@@ -153,8 +160,9 @@ header {
     text-shadow: 1px -1px -1px #333;
 }
 
-div#user_card {
-    width: 159px;
+#user_card {
+    width: 139px;
+    padding: 5px 20px;
     background-color: #71CD90;
 }
 

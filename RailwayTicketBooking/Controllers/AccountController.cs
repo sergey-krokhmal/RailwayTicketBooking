@@ -1,6 +1,7 @@
 ﻿using RailwayTicketBooking.Models;
 using System;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace RailwayTicketBooking.Controllers
 {
@@ -47,6 +48,8 @@ namespace RailwayTicketBooking.Controllers
                     else
                     {
                         Session["user"] = user;
+                        FormsAuthentication.SetAuthCookie(loginData.Login, loginData.RememberMe);
+                        
                         msgTitle = "Вход выполнен";
                         msgBody = "Вы успешно вошли в систему";
                     }
@@ -62,6 +65,17 @@ namespace RailwayTicketBooking.Controllers
             {
                 return PartialView();
             }
+        }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            if (Session["user"] != null)
+            {
+                Session.Remove("user");
+                FormsAuthentication.SignOut();
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

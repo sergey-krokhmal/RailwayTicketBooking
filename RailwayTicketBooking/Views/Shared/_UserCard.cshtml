@@ -1,3 +1,7 @@
 ﻿@model RailwayTicketBooking.Models.LoggedUser
 
-@Html.Label(Model.Login)
+Здравствуйте @Html.Label(Model.Login)!
+@using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @id = "log_form" }))
+{
+    <button type="submit">Выйти</button>
+}
