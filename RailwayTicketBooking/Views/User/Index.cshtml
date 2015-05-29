@@ -7,25 +7,28 @@
 
 <h2>Список пользователей</h2>
 
-<table>
-    <tr>
+<table class="data_table">
+    <tr class="table_header">
         <td>
-            @Html.Label("Имя");
+            @Html.Label("Имя")
         </td>
         <td>
-            @Html.Label("Фамилия");
+            @Html.Label("Фамилия")
         </td>
         @if (HttpContext.Current.User.IsInRole("Admin"))
         {
             <td>
-                @Html.Label("Логин");
+                @Html.Label("Логин")
             </td>
             <td>
-                @Html.Label("Пароль");
+                @Html.Label("Пароль")
             </td>
         }
         <td>
-            @Html.Label("Роль");
+            @Html.Label("Роль")
+        </td>
+        <td>
+            @Html.Label("Действия")
         </td>
     </tr>
 
@@ -38,7 +41,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
-            @if (HttpContext.Current.User.IsInRole("Администратор"))
+            @if (HttpContext.Current.User.IsInRole("Admin"))
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.Login)
@@ -60,3 +63,4 @@
         </tr>
     }
 </table>
+<a href="/User/Create" ><div class="link_button">Создать</div></a>

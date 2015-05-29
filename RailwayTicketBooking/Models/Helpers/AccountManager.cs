@@ -59,8 +59,8 @@ namespace RailwayTicketBooking.Models
         public LoggedUser GetLoggedUserById(int id)
         {
             RW rw = new RW();
-            User user = rw.User.Where(u => u.Id == id).First();
-            return new LoggedUser(user.Id, user.Login, user.Password);
+            User user = rw.User.Find(id);
+            return new LoggedUser(user.Id, user.Login, user.Surname, user.Name);
         }
 
         public LoggedUser GetLoggedUser(LoginViewModel loginData)
@@ -74,7 +74,7 @@ namespace RailwayTicketBooking.Models
             else
             {
                 User u = users[0];
-                return new LoggedUser(u.Id, u.Login, u.Password);
+                return new LoggedUser(u.Id, u.Login, u.Surname, u.Name);
             }
         }
     }

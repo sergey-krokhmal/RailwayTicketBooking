@@ -27,7 +27,7 @@
             <a href="/Account/Registration" ><div class="link_button">Станции</div></a>
             <a href="/News" ><div class="link_button">Новости</div></a>
         </nav>
-        @if (Session["user"] != null && HttpContext.Current.User.IsInRole("admin"))
+        @if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("Moderator"))
         {
             <nav id="admin_menu">
                 <a href="/User" >Пользователи</a>&nbsp;&nbsp;

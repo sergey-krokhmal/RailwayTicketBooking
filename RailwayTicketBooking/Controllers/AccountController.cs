@@ -49,7 +49,6 @@ namespace RailwayTicketBooking.Controllers
                     {
                         Session["user"] = user;
                         FormsAuthentication.SetAuthCookie(loginData.Login, loginData.RememberMe);
-                        
                         msgTitle = "Вход выполнен";
                         msgBody = "Вы успешно вошли в систему";
                     }

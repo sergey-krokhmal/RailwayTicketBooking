@@ -5,24 +5,28 @@ namespace RailwayTicketBooking.Models
     {
         private int id;
         private string login;
-        private string password;
+        private string surname;
+        private string name;
 
         public int Id { get { return id; } }
         public string Login { get { return login; } }
-        public string Password { get { return password; } }
+        public string Surname { get { return surname; } }
+        public string Name { get { return name; } }
 
         public LoggedUser()
         {
             id = 0;
             login = "";
-            password = "";
+            surname = "";
+            name = "";
         }
 
-        public LoggedUser(int id, string login, string password)
+        public LoggedUser(int id, string login, string surname, string name)
         {
             this.id = id;
             this.login = login;
-            this.password = password;
+            this.name = name;
+            this.surname = surname;
         }
     }
 }
