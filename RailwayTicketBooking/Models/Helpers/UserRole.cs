@@ -18,7 +18,7 @@ namespace RailwayTicketBooking.Models
         public static byte GetIdByName(string roleName)
         {
             RW rw = new RW();
-            byte roleId = rw.UserRole.Where(ur => ur.Name == roleName).Select(ur => ur.Id).First();
+            byte roleId = rw.User_Role.Where(ur => ur.Name == roleName).Select(ur => ur.Id).First();
             return roleId;
         }
     }

@@ -124,11 +124,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Booking.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Facility.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,6 +150,9 @@
     <Compile Include="Models\Helpers\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\UserRoleProvider.cs" />
+    <Compile Include="Route.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
     <Compile Include="RW.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,10 +168,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RW.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Station.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ticket.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Train.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>RW.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserRole.cs">
+    <Compile Include="User_Role.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wagon.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wagon_Type.cs">
       <DependentUpon>RW.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -269,7 +296,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_UserCard.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />

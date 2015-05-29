@@ -25,7 +25,16 @@ namespace RailwayTicketBooking
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Booking> Booking { get; set; }
+        public DbSet<Connection> Connection { get; set; }
+        public DbSet<Facility> Facility { get; set; }
+        public DbSet<Route> Route { get; set; }
+        public DbSet<Station> Station { get; set; }
+        public DbSet<Ticket> Ticket { get; set; }
+        public DbSet<Train> Train { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<User_Role> User_Role { get; set; }
+        public DbSet<Wagon> Wagon { get; set; }
+        public DbSet<Wagon_Type> Wagon_Type { get; set; }
     }
 }

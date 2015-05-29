@@ -4,119 +4,802 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RailwayModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RailwayModelStoreContainer">
+          <EntitySet Name="Booking" EntityType="RailwayModel.Store.Booking" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Connection" EntityType="RailwayModel.Store.Connection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Facility" EntityType="RailwayModel.Store.Facility" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Route" EntityType="RailwayModel.Store.Route" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Station" EntityType="RailwayModel.Store.Station" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ticket" EntityType="RailwayModel.Store.Ticket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Train" EntityType="RailwayModel.Store.Train" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="RailwayModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User_Role" EntityType="RailwayModel.Store.User_Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Wagon" EntityType="RailwayModel.Store.Wagon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Wagon_Type" EntityType="RailwayModel.Store.Wagon_Type" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Booking__Id_Faci__27F8EE98" Association="RailwayModel.Store.FK__Booking__Id_Faci__27F8EE98">
+            <End Role="Facility" EntitySet="Facility" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Id_Tick__2704CA5F" Association="RailwayModel.Store.FK__Booking__Id_Tick__2704CA5F">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Id_User__2610A626" Association="RailwayModel.Store.FK__Booking__Id_User__2610A626">
+            <End Role="User" EntitySet="User" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Connectio__Id_Ar__6AEFE058" Association="RailwayModel.Store.FK__Connectio__Id_Ar__6AEFE058">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Connectio__Id_De__69FBBC1F" Association="RailwayModel.Store.FK__Connectio__Id_De__69FBBC1F">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Route__Id_Connec__05A3D694" Association="RailwayModel.Store.FK__Route__Id_Connec__05A3D694">
+            <End Role="Connection" EntitySet="Connection" />
+            <End Role="Route" EntitySet="Route" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__Id_Route__0A688BB1" Association="RailwayModel.Store.FK__Ticket__Id_Route__0A688BB1">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__Id_Wagon__0B5CAFEA" Association="RailwayModel.Store.FK__Ticket__Id_Wagon__0B5CAFEA">
+            <End Role="Wagon" EntitySet="Wagon" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Train__Id_Connec__6FB49575" Association="RailwayModel.Store.FK__Train__Id_Connec__6FB49575">
+            <End Role="Connection" EntitySet="Connection" />
+            <End Role="Train" EntitySet="Train" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wagon__Id_Train__7FEAFD3E" Association="RailwayModel.Store.FK__Wagon__Id_Train__7FEAFD3E">
+            <End Role="Train" EntitySet="Train" />
+            <End Role="Wagon" EntitySet="Wagon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wagon__Id_Wagon___00DF2177" Association="RailwayModel.Store.FK__Wagon__Id_Wagon___00DF2177">
+            <End Role="Wagon_Type" EntitySet="Wagon_Type" />
+            <End Role="Wagon" EntitySet="Wagon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="RailwayModel.Store.FK_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Id_Ticket" />
+          </Key>
+          <Property Name="Id_User" Type="int" Nullable="false" />
+          <Property Name="Id_Ticket" Type="int" Nullable="false" />
+          <Property Name="Tea" Type="bit" Nullable="false" />
+          <Property Name="Bedding" Type="bit" Nullable="false" />
+          <Property Name="Cost" Type="smallmoney" Nullable="false" />
+          <Property Name="Id_Facility" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Departure_Station" Type="smallint" Nullable="false" />
+          <Property Name="Id_Arrival_Station" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descript" Type="varchar(max)" Nullable="false" />
+          <Property Name="Discount" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Connection" Type="int" Nullable="false" />
+          <Property Name="Departure_Time" Type="time" Nullable="false" Precision="0" />
+          <Property Name="Driving_Time" Type="time" Nullable="false" Precision="0" />
+          <Property Name="Cost" Type="smallmoney" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Place_Number" Type="tinyint" Nullable="false" />
+          <Property Name="Id_Route" Type="int" Nullable="false" />
+          <Property Name="Id_Wagon" Type="int" Nullable="false" />
+          <Property Name="Departure_Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Train">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Id_Connection" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Patronymic" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Id_UserRole" Type="tinyint" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Patronymic" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="13" />
+          <Property Name="Passport_Num" Type="varchar" MaxLength="9" />
+          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Login" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Id_User_Role" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserRole">
+        <EntityType Name="User_Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="150" />
+          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Discription" Type="varchar" MaxLength="150" />
         </EntityType>
-        <Association Name="FK_User_UserRole">
-          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <EntityType Name="Wagon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="tinyint" Nullable="false" />
+          <Property Name="Id_Train" Type="smallint" Nullable="false" />
+          <Property Name="Id_Wagon_Type" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wagon_Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Cost" Type="smallmoney" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Booking__Id_Faci__27F8EE98">
+          <End Role="Facility" Type="RailwayModel.Store.Facility" Multiplicity="0..1" />
+          <End Role="Booking" Type="RailwayModel.Store.Booking" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UserRole">
+            <Principal Role="Facility">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="Id_UserRole" />
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_Facility" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RWModelStoreContainer">
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
-            <End Role="UserRole" EntitySet="UserRole" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+        <Association Name="FK__Booking__Id_Tick__2704CA5F">
+          <End Role="Ticket" Type="RailwayModel.Store.Ticket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Booking" Type="RailwayModel.Store.Booking" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_Ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__Id_User__2610A626">
+          <End Role="User" Type="RailwayModel.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Booking" Type="RailwayModel.Store.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Connectio__Id_Ar__6AEFE058">
+          <End Role="Station" Type="RailwayModel.Store.Station" Multiplicity="1" />
+          <End Role="Connection" Type="RailwayModel.Store.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="Id_Arrival_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Connectio__Id_De__69FBBC1F">
+          <End Role="Station" Type="RailwayModel.Store.Station" Multiplicity="1" />
+          <End Role="Connection" Type="RailwayModel.Store.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="Id_Departure_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Route__Id_Connec__05A3D694">
+          <End Role="Connection" Type="RailwayModel.Store.Connection" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Route" Type="RailwayModel.Store.Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="Id_Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__Id_Route__0A688BB1">
+          <End Role="Route" Type="RailwayModel.Store.Route" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ticket" Type="RailwayModel.Store.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="Id_Route" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__Id_Wagon__0B5CAFEA">
+          <End Role="Wagon" Type="RailwayModel.Store.Wagon" Multiplicity="1" />
+          <End Role="Ticket" Type="RailwayModel.Store.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wagon">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="Id_Wagon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Train__Id_Connec__6FB49575">
+          <End Role="Connection" Type="RailwayModel.Store.Connection" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Train" Type="RailwayModel.Store.Train" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Train">
+              <PropertyRef Name="Id_Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wagon__Id_Train__7FEAFD3E">
+          <End Role="Train" Type="RailwayModel.Store.Train" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Wagon" Type="RailwayModel.Store.Wagon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Train">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wagon">
+              <PropertyRef Name="Id_Train" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wagon__Id_Wagon___00DF2177">
+          <End Role="Wagon_Type" Type="RailwayModel.Store.Wagon_Type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Wagon" Type="RailwayModel.Store.Wagon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wagon_Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wagon">
+              <PropertyRef Name="Id_Wagon_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="User_Role" Type="RailwayModel.Store.User_Role" Multiplicity="1" />
+          <End Role="User" Type="RailwayModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_User_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RailwayModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RW" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Booking" EntityType="RailwayModel.Booking" />
+          <EntitySet Name="Connection" EntityType="RailwayModel.Connection" />
+          <EntitySet Name="Facility" EntityType="RailwayModel.Facility" />
+          <EntitySet Name="Route" EntityType="RailwayModel.Route" />
+          <EntitySet Name="Station" EntityType="RailwayModel.Station" />
+          <EntitySet Name="Ticket" EntityType="RailwayModel.Ticket" />
+          <EntitySet Name="Train" EntityType="RailwayModel.Train" />
+          <EntitySet Name="User" EntityType="RailwayModel.User" />
+          <EntitySet Name="User_Role" EntityType="RailwayModel.User_Role" />
+          <EntitySet Name="Wagon" EntityType="RailwayModel.Wagon" />
+          <EntitySet Name="Wagon_Type" EntityType="RailwayModel.Wagon_Type" />
+          <AssociationSet Name="FK__Booking__Id_Faci__27F8EE98" Association="RailwayModel.FK__Booking__Id_Faci__27F8EE98">
+            <End Role="Facility" EntitySet="Facility" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Id_Tick__2704CA5F" Association="RailwayModel.FK__Booking__Id_Tick__2704CA5F">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Id_User__2610A626" Association="RailwayModel.FK__Booking__Id_User__2610A626">
+            <End Role="User" EntitySet="User" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Connectio__Id_Ar__6AEFE058" Association="RailwayModel.FK__Connectio__Id_Ar__6AEFE058">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Connectio__Id_De__69FBBC1F" Association="RailwayModel.FK__Connectio__Id_De__69FBBC1F">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Route__Id_Connec__05A3D694" Association="RailwayModel.FK__Route__Id_Connec__05A3D694">
+            <End Role="Connection" EntitySet="Connection" />
+            <End Role="Route" EntitySet="Route" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Train__Id_Connec__6FB49575" Association="RailwayModel.FK__Train__Id_Connec__6FB49575">
+            <End Role="Connection" EntitySet="Connection" />
+            <End Role="Train" EntitySet="Train" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__Id_Route__0A688BB1" Association="RailwayModel.FK__Ticket__Id_Route__0A688BB1">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__Id_Wagon__0B5CAFEA" Association="RailwayModel.FK__Ticket__Id_Wagon__0B5CAFEA">
+            <End Role="Wagon" EntitySet="Wagon" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wagon__Id_Train__7FEAFD3E" Association="RailwayModel.FK__Wagon__Id_Train__7FEAFD3E">
+            <End Role="Train" EntitySet="Train" />
+            <End Role="Wagon" EntitySet="Wagon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="RailwayModel.FK_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wagon__Id_Wagon___00DF2177" Association="RailwayModel.FK__Wagon__Id_Wagon___00DF2177">
+            <End Role="Wagon_Type" EntitySet="Wagon_Type" />
+            <End Role="Wagon" EntitySet="Wagon" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Id_Ticket" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" />
+          <Property Name="Id_Ticket" Type="Int32" Nullable="false" />
+          <Property Name="Tea" Type="Boolean" Nullable="false" />
+          <Property Name="Bedding" Type="Boolean" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Id_Facility" Type="Byte" />
+          <NavigationProperty Name="Facility" Relationship="RailwayModel.FK__Booking__Id_Faci__27F8EE98" FromRole="Booking" ToRole="Facility" />
+          <NavigationProperty Name="Ticket" Relationship="RailwayModel.FK__Booking__Id_Tick__2704CA5F" FromRole="Booking" ToRole="Ticket" />
+          <NavigationProperty Name="User" Relationship="RailwayModel.FK__Booking__Id_User__2610A626" FromRole="Booking" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Departure_Station" Type="Int16" Nullable="false" />
+          <Property Name="Id_Arrival_Station" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Station" Relationship="RailwayModel.FK__Connectio__Id_Ar__6AEFE058" FromRole="Connection" ToRole="Station" />
+          <NavigationProperty Name="Station1" Relationship="RailwayModel.FK__Connectio__Id_De__69FBBC1F" FromRole="Connection" ToRole="Station" />
+          <NavigationProperty Name="Route" Relationship="RailwayModel.FK__Route__Id_Connec__05A3D694" FromRole="Connection" ToRole="Route" />
+          <NavigationProperty Name="Train" Relationship="RailwayModel.FK__Train__Id_Connec__6FB49575" FromRole="Connection" ToRole="Train" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descript" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Discount" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Booking" Relationship="RailwayModel.FK__Booking__Id_Faci__27F8EE98" FromRole="Facility" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Connection" Type="Int32" Nullable="false" />
+          <Property Name="Departure_Time" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="Driving_Time" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <NavigationProperty Name="Connection" Relationship="RailwayModel.FK__Route__Id_Connec__05A3D694" FromRole="Route" ToRole="Connection" />
+          <NavigationProperty Name="Ticket" Relationship="RailwayModel.FK__Ticket__Id_Route__0A688BB1" FromRole="Route" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Connection" Relationship="RailwayModel.FK__Connectio__Id_Ar__6AEFE058" FromRole="Station" ToRole="Connection" />
+          <NavigationProperty Name="Connection1" Relationship="RailwayModel.FK__Connectio__Id_De__69FBBC1F" FromRole="Station" ToRole="Connection" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Place_Number" Type="Byte" Nullable="false" />
+          <Property Name="Id_Route" Type="Int32" Nullable="false" />
+          <Property Name="Id_Wagon" Type="Int32" Nullable="false" />
+          <Property Name="Departure_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Booking" Relationship="RailwayModel.FK__Booking__Id_Tick__2704CA5F" FromRole="Ticket" ToRole="Booking" />
+          <NavigationProperty Name="Route" Relationship="RailwayModel.FK__Ticket__Id_Route__0A688BB1" FromRole="Ticket" ToRole="Route" />
+          <NavigationProperty Name="Wagon" Relationship="RailwayModel.FK__Ticket__Id_Wagon__0B5CAFEA" FromRole="Ticket" ToRole="Wagon" />
+        </EntityType>
+        <EntityType Name="Train">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Id_Connection" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Connection" Relationship="RailwayModel.FK__Train__Id_Connec__6FB49575" FromRole="Train" ToRole="Connection" />
+          <NavigationProperty Name="Wagon" Relationship="RailwayModel.FK__Wagon__Id_Train__7FEAFD3E" FromRole="Train" ToRole="Wagon" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Id_UserRole" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="13" Unicode="false" FixedLength="false" />
+          <Property Name="Passport_Num" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Id_User_Role" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Booking" Relationship="RailwayModel.FK__Booking__Id_User__2610A626" FromRole="User" ToRole="Booking" />
+          <NavigationProperty Name="User_Role" Relationship="RailwayModel.FK_User_Role" FromRole="User" ToRole="User_Role" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserRole">
+        <EntityType Name="User_Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+          <Property Name="Id" Type="Byte" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Discription" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="RailwayModel.FK_User_Role" FromRole="User_Role" ToRole="User" />
         </EntityType>
-        <Association Name="FK_User_UserRole">
-          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <EntityType Name="Wagon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Byte" Nullable="false" />
+          <Property Name="Id_Train" Type="Int16" Nullable="false" />
+          <Property Name="Id_Wagon_Type" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Ticket" Relationship="RailwayModel.FK__Ticket__Id_Wagon__0B5CAFEA" FromRole="Wagon" ToRole="Ticket" />
+          <NavigationProperty Name="Train" Relationship="RailwayModel.FK__Wagon__Id_Train__7FEAFD3E" FromRole="Wagon" ToRole="Train" />
+          <NavigationProperty Name="Wagon_Type" Relationship="RailwayModel.FK__Wagon__Id_Wagon___00DF2177" FromRole="Wagon" ToRole="Wagon_Type" />
+        </EntityType>
+        <EntityType Name="Wagon_Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <NavigationProperty Name="Wagon" Relationship="RailwayModel.FK__Wagon__Id_Wagon___00DF2177" FromRole="Wagon_Type" ToRole="Wagon" />
+        </EntityType>
+        <Association Name="FK__Booking__Id_Faci__27F8EE98">
+          <End Role="Facility" Type="RailwayModel.Facility" Multiplicity="0..1" />
+          <End Role="Booking" Type="RailwayModel.Booking" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UserRole">
+            <Principal Role="Facility">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="Id_UserRole" />
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_Facility" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RW" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
-          <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
-            <End Role="UserRole" EntitySet="UserRole" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
+        <Association Name="FK__Booking__Id_Tick__2704CA5F">
+          <End Role="Ticket" Type="RailwayModel.Ticket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Booking" Type="RailwayModel.Booking" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_Ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__Id_User__2610A626">
+          <End Role="User" Type="RailwayModel.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Booking" Type="RailwayModel.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Connectio__Id_Ar__6AEFE058">
+          <End Role="Station" Type="RailwayModel.Station" Multiplicity="1" />
+          <End Role="Connection" Type="RailwayModel.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="Id_Arrival_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Connectio__Id_De__69FBBC1F">
+          <End Role="Station" Type="RailwayModel.Station" Multiplicity="1" />
+          <End Role="Connection" Type="RailwayModel.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="Id_Departure_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Route__Id_Connec__05A3D694">
+          <End Role="Connection" Type="RailwayModel.Connection" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Route" Type="RailwayModel.Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="Id_Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Train__Id_Connec__6FB49575">
+          <End Role="Connection" Type="RailwayModel.Connection" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Train" Type="RailwayModel.Train" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Train">
+              <PropertyRef Name="Id_Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__Id_Route__0A688BB1">
+          <End Role="Route" Type="RailwayModel.Route" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ticket" Type="RailwayModel.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="Id_Route" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__Id_Wagon__0B5CAFEA">
+          <End Role="Wagon" Type="RailwayModel.Wagon" Multiplicity="1" />
+          <End Role="Ticket" Type="RailwayModel.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wagon">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="Id_Wagon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wagon__Id_Train__7FEAFD3E">
+          <End Role="Train" Type="RailwayModel.Train" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Wagon" Type="RailwayModel.Wagon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Train">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wagon">
+              <PropertyRef Name="Id_Train" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="User_Role" Type="RailwayModel.User_Role" Multiplicity="1" />
+          <End Role="User" Type="RailwayModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_User_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wagon__Id_Wagon___00DF2177">
+          <End Role="Wagon_Type" Type="RailwayModel.Wagon_Type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Wagon" Type="RailwayModel.Wagon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wagon_Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wagon">
+              <PropertyRef Name="Id_Wagon_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RWModelStoreContainer" CdmEntityContainer="RW">
+        <EntityContainerMapping StorageEntityContainer="RailwayModelStoreContainer" CdmEntityContainer="RW">
+          <EntitySetMapping Name="Booking">
+            <EntityTypeMapping TypeName="RailwayModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
+                <ScalarProperty Name="Tea" ColumnName="Tea" />
+                <ScalarProperty Name="Bedding" ColumnName="Bedding" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Id_Facility" ColumnName="Id_Facility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connection">
+            <EntityTypeMapping TypeName="RailwayModel.Connection">
+              <MappingFragment StoreEntitySet="Connection">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Departure_Station" ColumnName="Id_Departure_Station" />
+                <ScalarProperty Name="Id_Arrival_Station" ColumnName="Id_Arrival_Station" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facility">
+            <EntityTypeMapping TypeName="RailwayModel.Facility">
+              <MappingFragment StoreEntitySet="Facility">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descript" ColumnName="Descript" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Route">
+            <EntityTypeMapping TypeName="RailwayModel.Route">
+              <MappingFragment StoreEntitySet="Route">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Connection" ColumnName="Id_Connection" />
+                <ScalarProperty Name="Departure_Time" ColumnName="Departure_Time" />
+                <ScalarProperty Name="Driving_Time" ColumnName="Driving_Time" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Station">
+            <EntityTypeMapping TypeName="RailwayModel.Station">
+              <MappingFragment StoreEntitySet="Station">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ticket">
+            <EntityTypeMapping TypeName="RailwayModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Place_Number" ColumnName="Place_Number" />
+                <ScalarProperty Name="Id_Route" ColumnName="Id_Route" />
+                <ScalarProperty Name="Id_Wagon" ColumnName="Id_Wagon" />
+                <ScalarProperty Name="Departure_Date" ColumnName="Departure_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Train">
+            <EntityTypeMapping TypeName="RailwayModel.Train">
+              <MappingFragment StoreEntitySet="Train">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id_Connection" ColumnName="Id_Connection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="RWModel.User">
+            <EntityTypeMapping TypeName="RailwayModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Passport_Num" ColumnName="Passport_Num" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Id_UserRole" ColumnName="Id_UserRole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id_User_Role" ColumnName="Id_User_Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserRole">
-            <EntityTypeMapping TypeName="RWModel.UserRole">
-              <MappingFragment StoreEntitySet="UserRole">
+          <EntitySetMapping Name="User_Role">
+            <EntityTypeMapping TypeName="RailwayModel.User_Role">
+              <MappingFragment StoreEntitySet="User_Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wagon">
+            <EntityTypeMapping TypeName="RailwayModel.Wagon">
+              <MappingFragment StoreEntitySet="Wagon">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id_Train" ColumnName="Id_Train" />
+                <ScalarProperty Name="Id_Wagon_Type" ColumnName="Id_Wagon_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wagon_Type">
+            <EntityTypeMapping TypeName="RailwayModel.Wagon_Type">
+              <MappingFragment StoreEntitySet="Wagon_Type">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -134,9 +817,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

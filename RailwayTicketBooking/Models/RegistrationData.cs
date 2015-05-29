@@ -29,5 +29,17 @@ namespace RailwayTicketBooking.Models
         [Required(ErrorMessage = "Поле Отчество обязательное")]
         [Display(Name = "Отчество")]
         public string Patronymic { get; set; }
+
+        [Display(Name = "Телефонный номер")]
+        public string Phone_Number { get; set; }
+
+        [Display(Name = "Сер. и номер паспорта")]
+        public string Passport_Num { get; set; }
+
+        [Required(ErrorMessage = "Поле E-mail обязательное")]
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
+
+
     }
 }

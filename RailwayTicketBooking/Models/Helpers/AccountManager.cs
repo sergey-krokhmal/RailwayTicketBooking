@@ -16,7 +16,7 @@ namespace RailwayTicketBooking.Models
             if (!UserExist(regData.RegLogin))
             {
                 User user = new User();
-                user.Id_UserRole = UserRole.GetIdByName(UserRoles.User.ToString());
+                user.Id_User_Role = UserRole.GetIdByName(UserRoles.User.ToString());
                 user.Login = regData.RegLogin;
                 user.Password = regData.RegPassword;
                 user.Name = regData.Name;

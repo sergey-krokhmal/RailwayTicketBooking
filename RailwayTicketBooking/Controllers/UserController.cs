@@ -21,10 +21,17 @@ namespace RailwayTicketBooking.Controllers
         }
 
         [HttpGet]
+        public ActionResult Profile(int id)
+        {
+            User user = rw.User.Find(id);
+            return View(user);
+        }
+
+        [HttpGet]
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            SelectList roles = new SelectList(rw.UserRole, "Id", "Name");
+            SelectList roles = new SelectList(rw.User_Role, "Id", "Name");
             ViewBag.Roles = roles;
             return View();
         }
@@ -39,23 +46,21 @@ namespace RailwayTicketBooking.Controllers
                 rw.SaveChanges();
                 return RedirectToAction("Index");
             }
-            SelectList roles = new SelectList(rw.UserRole, "Id", "Name");
+            SelectList roles = new SelectList(rw.User_Role, "Id", "Name");
             ViewBag.Roles = roles;
             return View(user);
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Edit(int id)
         {
             User user = rw.User.Find(id);
-            SelectList roles = new SelectList(rw.UserRole, "Id", "Name", user.Id_UserRole);
+            SelectList roles = new SelectList(rw.User_Role, "Id", "Name", user.Id_User_Role);
             ViewBag.Roles = roles;
             return View(user);
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Edit(User user)
         {
             if (ModelState.IsValid)
@@ -64,12 +69,12 @@ namespace RailwayTicketBooking.Controllers
                 rw.SaveChanges();
                 return RedirectToAction("Index");
             }
-            SelectList roles = new SelectList(rw.UserRole, "Id", "Name", user.Id_UserRole);
+            SelectList roles = new SelectList(rw.User_Role, "Id", "Name", user.Id_User_Role);
             ViewBag.Roles = roles;
             return View(user);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Authorize(Roles = "Admin")]
         public ActionResult Remove(int id)
         {

@@ -1,13 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fa7d4130088e41de9f9693d470aabdff" Name="Diagram1">
-        <EntityTypeShape EntityType="RWModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="RWModel.UserRole" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="RWModel.FK_User_UserRole" ManuallyRouted="false" />
+      <Diagram DiagramId="793e56a7d18b49e28822f78ed127d024" Name="Diagram1">
+        <EntityTypeShape EntityType="RailwayModel.Booking" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Connection" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Facility" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Route" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Station" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Ticket" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Train" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.User" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.User_Role" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Wagon" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailwayModel.Wagon_Type" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="RailwayModel.FK__Booking__Id_Faci__27F8EE98" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Booking__Id_Tick__2704CA5F" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Booking__Id_User__2610A626" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Connectio__Id_Ar__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Connectio__Id_De__69FBBC1F" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Route__Id_Connec__05A3D694" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Train__Id_Connec__6FB49575" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Ticket__Id_Route__0A688BB1" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Ticket__Id_Wagon__0B5CAFEA" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Wagon__Id_Train__7FEAFD3E" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="RailwayModel.FK__Wagon__Id_Wagon___00DF2177" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

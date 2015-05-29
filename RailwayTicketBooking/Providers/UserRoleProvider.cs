@@ -22,7 +22,7 @@ namespace RailwayTicketBooking.Providers
                     if (user != null)
                     {
                         // получаем роль
-                        UserRole userRole = rw.UserRole.Find(user.Id_UserRole);
+                        User_Role userRole = rw.User_Role.Find(user.Id_User_Role);
 
                         if (userRole != null)
                         {
@@ -52,7 +52,7 @@ namespace RailwayTicketBooking.Providers
                     if (user != null)
                     {
                         // получаем роль
-                        UserRole userRole = rw.UserRole.Find(user.Id_UserRole);
+                        User_Role userRole = rw.User_Role.Find(user.Id_User_Role);
 
                         //сравниваем
                         if (userRole != null && userRole.Name == roleName)

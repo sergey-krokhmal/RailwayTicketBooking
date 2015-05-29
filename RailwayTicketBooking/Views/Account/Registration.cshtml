@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { @id = "reg_form" }))
 {
-    <hr noshade ="noshade"/>
+    <hr/>
     @Html.ValidationSummary()
     <fieldset title="Форма регистрации">
         <legend>Форма регистрации</legend>
@@ -60,6 +60,30 @@
                 </td>
                 <td>
                     @Html.TextBoxFor(Model => Model.Patronymic, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Phone_Number, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Phone_Number, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Passport_Num, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Passport_Num, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Email, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Email, new { @class = "editor-field" })
                 </td>
             </tr>
             <tr>

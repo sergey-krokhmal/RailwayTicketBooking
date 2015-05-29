@@ -8,11 +8,6 @@ namespace RailwayTicketBooking.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return PartialView();
-        }
 
         [HttpGet]
         public ActionResult Login()
