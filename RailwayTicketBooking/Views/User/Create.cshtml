@@ -1,0 +1,73 @@
+﻿@model RailwayTicketBooking.User
+
+@{
+    ViewBag.Title = "Создание пользователя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Создание пользователя</h2>
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { @id = "reg_form" }))
+{
+    <hr noshade ="noshade"/>
+    @Html.ValidationSummary()
+    <fieldset title="Форма регистрации">
+        <legend>Форма регистрации</legend>
+        <table>
+            <tr>
+                <td>
+                    @Html.Label("Логин", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(u => u.Login, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Пароль", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(u => u.Password, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Фамилия", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(u => u.Surname, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Имя", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(u => u.Name, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Отчество", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(u => u.Patronymic, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Роль пользователя", new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.Id_UserRole, ViewBag.Roles as SelectList, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Добавить</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}

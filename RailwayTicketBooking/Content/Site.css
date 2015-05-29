@@ -17,8 +17,17 @@ header, footer, nav, section {
     display: block;
 }
 
+hr {
+    color: #287135;
+    border-style:dotted;
+}
+
 a {
-    text-decoration: none;
+    color: #206697;
+}
+
+tr {
+    height: 30px;
 }
 
 /* Styles for basic forms
@@ -48,12 +57,18 @@ textarea {
 
 button {
     background-color: #5194c1;
-    width: 120px;
-    height: 40px;
+    border: medium none;
+    color: white;
+    font-family: Calibri;
+    font-size: 12pt;
+    font-weight: bold;
+    height: 30px;
+    margin: 10px auto 5px;
+    width: 140px;
 }
 
 button:hover {
-    background-color: #1c5983;
+    background-color: #206697;
 }
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -104,6 +119,13 @@ header {
     padding-left: 1px;
 }
 
+#admin_menu a
+{
+    text-decoration: none;
+    color: #390b0b;
+    font-size: 12pt;
+}
+
 .link_button {
     background: #5194c1;
     height: 40px;
@@ -119,7 +141,7 @@ header {
 }
 
 .link_button:hover {
-    background: #1c5983;
+    background: #206697;
 }
 
 /*Left side styles*/
@@ -144,8 +166,9 @@ header {
     text-shadow: 1px -1px -1px #333;
 }
 
-#login {
-    width: 179px;
+#user_card {
+    width: 139px;
+    padding: 5px 20px;
     background-color: #71CD90;
 }
 
@@ -160,10 +183,30 @@ header {
 /*Main side style*/
 
 #main_side {
-    padding-left: 10px;
+    padding: 0px 5px;
     width: 710px;
     height: 500px;
     float: left;
+}
+
+.data_table {
+    font-family: Calibri;
+    font-size: 13pt;
+    font-weight: 500;
+    background-color: #a4eabc;
+    border: double medium #206697;
+    width: 100%;
+}
+
+.data_table td {
+    border: 1px solid white;
+    text-align: center;
+    vertical-align: middle;
+}
+.table_header {
+    color: white;
+    background-color: #71CD90;
+    border: double medium #206697;
 }
 
 /*Text styles*/

@@ -127,35 +127,40 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountManager.cs" />
+    <Compile Include="Models\Helpers\AccountManager.cs" />
     <Compile Include="Models\ErrorMessageProvider.cs" />
     <Compile Include="Models\LoggedUser.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\BusinessObjects\Message.cs" />
     <Compile Include="Models\RegistrationData.cs" />
+    <Compile Include="Models\Helpers\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Railway.Context.cs">
+    <Compile Include="Providers\UserRoleProvider.cs" />
+    <Compile Include="RW.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Railway.Context.tt</DependentUpon>
+      <DependentUpon>RW.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Railway.cs">
+    <Compile Include="RW.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Railway.tt</DependentUpon>
+      <DependentUpon>RW.tt</DependentUpon>
     </Compile>
-    <Compile Include="Railway.Designer.cs">
+    <Compile Include="RW.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Railway.edmx</DependentUpon>
+      <DependentUpon>RW.edmx</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Railway.tt</DependentUpon>
+      <DependentUpon>RW.tt</DependentUpon>
     </Compile>
     <Compile Include="UserRole.cs">
-      <DependentUpon>Railway.tt</DependentUpon>
+      <DependentUpon>RW.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -216,22 +221,22 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EntityDeploy Include="Railway.edmx">
+    <EntityDeploy Include="RW.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Railway.Designer.cs</LastGenOutput>
+      <LastGenOutput>RW.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Railway.Context.tt">
+    <Content Include="RW.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Railway.edmx</DependentUpon>
-      <LastGenOutput>Railway.Context.cs</LastGenOutput>
+      <DependentUpon>RW.edmx</DependentUpon>
+      <LastGenOutput>RW.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Railway.edmx.diagram">
-      <DependentUpon>Railway.edmx</DependentUpon>
+    <Content Include="RW.edmx.diagram">
+      <DependentUpon>RW.edmx</DependentUpon>
     </Content>
-    <Content Include="Railway.tt">
+    <Content Include="RW.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Railway.edmx</DependentUpon>
-      <LastGenOutput>Railway.cs</LastGenOutput>
+      <DependentUpon>RW.edmx</DependentUpon>
+      <LastGenOutput>RW.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\Custom\Watch.js" />
@@ -262,11 +267,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_UserCard.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

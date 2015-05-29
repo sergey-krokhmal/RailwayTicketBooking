@@ -16,7 +16,7 @@ namespace RailwayTicketBooking.Models
                 case 1:
                     return "Пароли не совпадают";
                 case 2:
-                    return 
+                    return "";
                 default:
                     return "Неизвестная ошибка. Обратитесь в техническую поддержку";
             }

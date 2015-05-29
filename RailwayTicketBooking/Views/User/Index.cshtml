@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RailwayTicketBooking.User>
+
+@{
+    ViewBag.Title = "Пользователи системы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Список пользователей</h2>
+
+<table class="data_table">
+    <tr class="table_header">
+        <td>
+            @Html.Label("Имя")
+        </td>
+        <td>
+            @Html.Label("Фамилия")
+        </td>
+        @if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.Label("Логин")
+            </td>
+            <td>
+                @Html.Label("Пароль")
+            </td>
+        }
+        <td>
+            @Html.Label("Роль")
+        </td>
+        <td>
+            @Html.Label("Действия")
+        </td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRole.Name)
+            </td>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                </td>
+            }
+        </tr>
+    }
+</table>
+<a href="/User/Create" ><div class="link_button">Создать</div></a>

@@ -1,1 +1,13 @@
-﻿<h2>Hello</h2>
+﻿@model RailwayTicketBooking.Models.LoginViewModel
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "log_form"}))
+{
+    @Html.LabelFor(Model => Model.Login)
+    @Html.TextBoxFor(Model => Model.Login)
+    @Html.LabelFor(Model => Model.Password)
+    @Html.PasswordFor(Model => Model.Password)
+    @Html.LabelFor(Model => Model.RememberMe)
+    @Html.CheckBoxFor(Model => Model.RememberMe)
+    <button type="submit">Войти</button>
+    <a href="/Account/Registration">Регистрация</a>
+}
