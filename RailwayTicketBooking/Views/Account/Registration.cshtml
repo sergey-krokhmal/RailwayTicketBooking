@@ -80,6 +80,14 @@
             </tr>
             <tr>
                 <td>
+                    @Html.LabelFor(Model => Model.Address, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Address, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
                     @Html.LabelFor(Model => Model.Email, new { @class = "editor-label" })
                 </td>
                 <td>

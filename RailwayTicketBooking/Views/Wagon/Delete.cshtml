@@ -1,0 +1,39 @@
+﻿@model RailwayTicketBooking.Wagon
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Wagon</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Train.Code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Train.Code)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Wagon_Type.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Wagon_Type.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

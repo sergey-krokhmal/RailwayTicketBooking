@@ -22,7 +22,14 @@ hr {
     border-style:dotted;
 }
 
-a {
+.ui-datepicker-calendar a {
+    display: block;
+    text-align:center;
+    text-decoration:none;
+}
+
+a
+{
     color: #206697;
 }
 
@@ -53,6 +60,7 @@ textarea {
 
 .editor-field {
     margin: 0.5em 0 0 0;
+    width: 100%;
 }
 
 button {
@@ -121,9 +129,13 @@ header {
 
 #admin_menu a
 {
-    text-decoration: none;
     color: #390b0b;
     font-size: 12pt;
+}
+
+#admin_menu a:hover
+{
+    color: #b02222;
 }
 
 .link_button {
@@ -148,7 +160,7 @@ header {
 #left_side {
     border-right: dotted #287135 thin;
     width: 179px;
-    height: 500px;
+    height: 100%;
     float: left;
 }
 
@@ -172,6 +184,12 @@ header {
     background-color: #71CD90;
 }
 
+#log_form a
+{
+    text-decoration: none;
+    text-align:left;
+}
+
 /*Content styles*/
 #content {
     background-color: white;
@@ -183,9 +201,9 @@ header {
 /*Main side style*/
 
 #main_side {
-    padding: 0px 5px;
-    width: 710px;
-    height: 500px;
+    padding: 0px 10px;
+    width: 700px;
+    height: 100%;
     float: left;
 }
 
@@ -194,13 +212,12 @@ header {
     font-size: 13pt;
     font-weight: 500;
     background-color: #a4eabc;
-    border: double medium #206697;
     width: 100%;
 }
 
 .data_table td {
     border: 1px solid white;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
 }
 .table_header {
@@ -229,4 +246,11 @@ h2 {
     font-family: Calibri;
     font-size:16pt;
     margin-left: 20px;
+}
+
+h3
+{
+    font-family: Calibri;
+    font-size: 16pt;
+    font-weight:100;
 }

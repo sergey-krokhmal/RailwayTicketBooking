@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/jquery-ui.theme.min.css")
     @Scripts.Render("~/bundles/modernizr")
-    <script src="/Scripts/Custom/Watch.js" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/jquery-ui-i18n.min.js")
+    @RenderSection("Scripts", required: false)
 </head>
 <body>
     <div id="page">
@@ -21,7 +25,7 @@
             </h1>
         </header>
         <nav id="menu">
-            <a href="/Booking" ><div class="link_button">Резервирование</div></a>
+            <a href="/SearchTicket" ><div class="link_button">Резервирование</div></a>
             <a href="/Schedule" ><div class="link_button">Расписание</div></a>
             <a href="/Hotline" ><div class="link_button">Горячая линия</div></a>
             <a href="/Account/Registration" ><div class="link_button">Станции</div></a>
@@ -29,8 +33,19 @@
         </nav>
         @if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("Moderator"))
         {
+            <hr />
             <nav id="admin_menu">
                 <a href="/User" >Пользователи</a>&nbsp;&nbsp;
+                <a href="/UserRole" >Роли</a>&nbsp;&nbsp;
+                <a href="/Station" >Станции</a>&nbsp;&nbsp;
+                <a href="/Connection" >Сообщения</a>&nbsp;&nbsp;
+                <a href="/WagonType" >Типы вагонов</a>&nbsp;&nbsp;
+                <a href="/Wagon" >Вагоны</a>&nbsp;&nbsp;
+                <a href="/Train" >Поезда</a>&nbsp;&nbsp;
+                <a href="/Route" >Маршруты</a>&nbsp;&nbsp;
+                <a href="/Ticket" >Билеты</a>&nbsp;&nbsp;
+                <a href="/Facility" >Льготы</a>&nbsp;&nbsp;
+                <a href="/Booking" >Заказы</a>&nbsp;&nbsp;
             </nav>
         }
         <div id="content">
@@ -51,7 +66,5 @@
             </div>
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

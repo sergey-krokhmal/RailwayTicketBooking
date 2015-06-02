@@ -1,0 +1,53 @@
+﻿@model RailwayTicketBooking.Wagon
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Wagon</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Train, "Train")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Id_Train", String.Empty)
+            @Html.ValidationMessageFor(model => model.Id_Train)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Wagon_Type, "Wagon_Type")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Id_Wagon_Type", String.Empty)
+            @Html.ValidationMessageFor(model => model.Id_Wagon_Type)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

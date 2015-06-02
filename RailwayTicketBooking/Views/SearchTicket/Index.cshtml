@@ -1,0 +1,57 @@
+﻿@model RailwayTicketBooking.Models.SearchTicketViewModel
+
+@{
+    ViewBag.Title = "Поиск билетов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Поиск билетов</h2>
+
+@using (Html.BeginForm("TrainList", "SearchTicket", FormMethod.Post))
+{
+    <hr/>
+    @Html.ValidationSummary()
+    <fieldset title="Поиск билетов">
+        <legend>Поиск билетов</legend>
+        <table id="reg_table">
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.DepartureStation, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.DepartureStation, ViewBag.DepartureStations as SelectList, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ArrivalStation, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.ArrivalStation, ViewBag.ArrivalStations as SelectList, new { @class = "editor-field" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.DepartureDate, new { @class = "editor-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.DepartureDate, new { @class ="datepicker editor-field"})
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Искать</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
+@section Scripts {
+    <script type="text/javascript" >
+        $(function () {
+            $(".datepicker").datepicker($.datepicker.regional["ru"]);
+        });
+    </script>
+}

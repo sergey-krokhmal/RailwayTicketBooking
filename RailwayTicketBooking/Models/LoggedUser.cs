@@ -1,5 +1,4 @@
-﻿
-namespace RailwayTicketBooking.Models
+﻿namespace RailwayTicketBooking.Models
 {
     public class LoggedUser
     {

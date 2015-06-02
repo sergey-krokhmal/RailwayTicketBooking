@@ -1,0 +1,67 @@
+﻿@model RailwayTicketBooking.Ticket
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ticket</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Code)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Code)
+            @Html.ValidationMessageFor(model => model.Code)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Place_Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Place_Number)
+            @Html.ValidationMessageFor(model => model.Place_Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Route, "Route")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Id_Route", String.Empty)
+            @Html.ValidationMessageFor(model => model.Id_Route)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Wagon, "Wagon")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Id_Wagon", String.Empty)
+            @Html.ValidationMessageFor(model => model.Id_Wagon)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Departure_Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Departure_Date)
+            @Html.ValidationMessageFor(model => model.Departure_Date)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

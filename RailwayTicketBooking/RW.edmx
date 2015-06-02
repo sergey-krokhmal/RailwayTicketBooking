@@ -139,7 +139,7 @@
           <Property Name="Patronymic" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Phone_Number" Type="varchar" MaxLength="13" />
           <Property Name="Passport_Num" Type="varchar" MaxLength="9" />
-          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
           <Property Name="Login" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Email" Type="varchar" Nullable="false" MaxLength="150" />
@@ -150,7 +150,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Discription" Type="varchar" MaxLength="150" />
         </EntityType>
@@ -484,7 +484,7 @@
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Phone_Number" Type="String" MaxLength="13" Unicode="false" FixedLength="false" />
           <Property Name="Passport_Num" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />

@@ -1,0 +1,74 @@
+﻿@model RailwayTicketBooking.User
+
+@{
+    ViewBag.Title = "Профиль пользователя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Профиль пользователя</h2>
+
+<table class="data_table">
+    <tr>
+        <td>Персональный ID
+        </td>
+        <td>
+            @Model.Id
+        </td>
+    </tr>
+    <tr>
+        <td>Логин
+        </td>
+        <td>
+            @Model.Login
+        </td>
+    </tr>
+    <tr>
+        <td>Фамилия
+        </td>
+        <td>
+            @Model.Surname
+        </td>
+    </tr>
+    <tr>
+        <td>Имя
+        </td>
+        <td>
+            @Model.Name
+        </td>
+    </tr>
+    <tr>
+        <td>Отчество
+        </td>
+        <td>
+            @Model.Patronymic
+        </td>
+    </tr>
+    <tr>
+        <td>Телефонный номер
+        </td>
+        <td>
+            @Model.Phone_Number
+        </td>
+    </tr>
+    <tr>
+        <td>Серия и номер паспорта
+        </td>
+        <td>
+            @Model.Passport_Num
+        </td>
+    </tr>
+    <tr>
+        <td>Адрес
+        </td>
+        <td>
+            @Model.Address
+        </td>
+    </tr>
+    <tr>
+        <td>E-mail
+        </td>
+        <td>
+            @Model.Email
+        </td>
+    </tr>
+</table>

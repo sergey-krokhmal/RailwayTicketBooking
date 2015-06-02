@@ -1,0 +1,57 @@
+﻿@model RailwayTicketBooking.Booking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Booking</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.Surname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.Surname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ticket.Code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ticket.Code)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bedding)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bedding)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cost)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cost)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Facility.Descript)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Facility.Descript)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

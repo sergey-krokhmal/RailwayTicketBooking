@@ -11,18 +11,16 @@ namespace RailwayTicketBooking.Providers
         public override string[] GetRolesForUser(string login)
         {
             string[] role = new string[] { };
-            using (RW rw = new RW())
+            using (RW db = new RW())
             {
                 try
                 {
                     // Получаем пользователя
-                    User user = (from u in rw.User
-                                 where u.Login == login
-                                 select u).FirstOrDefault();
+                    User user = db.User.Where(u => u.Login == login).First();
                     if (user != null)
                     {
                         // получаем роль
-                        User_Role userRole = rw.User_Role.Find(user.Id_User_Role);
+                        User_Role userRole = db.User_Role.Find(user.Id_User_Role);
 
                         if (userRole != null)
                         {
@@ -41,18 +39,18 @@ namespace RailwayTicketBooking.Providers
         {
             bool outputResult = false;
             // Находим пользователя
-            using (RW rw = new RW())
+            using (RW db = new RW())
             {
                 try
                 {
                     // Получаем пользователя
-                    User user = (from u in rw.User
+                    User user = (from u in db.User
                                  where u.Login == username
                                  select u).FirstOrDefault();
                     if (user != null)
                     {
                         // получаем роль
-                        User_Role userRole = rw.User_Role.Find(user.Id_User_Role);
+                        User_Role userRole = db.User_Role.Find(user.Id_User_Role);
 
                         //сравниваем
                         if (userRole != null && userRole.Name == roleName)

@@ -1,0 +1,29 @@
+﻿@model RailwayTicketBooking.Connection
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Connection</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Station1.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Station1.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Station.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Station.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -36,10 +36,11 @@ namespace RailwayTicketBooking.Models
         [Display(Name = "Сер. и номер паспорта")]
         public string Passport_Num { get; set; }
 
+        [Display(Name = "Адрес")]
+        public string Address { get; set; }
+
         [Required(ErrorMessage = "Поле E-mail обязательное")]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
-
-
     }
 }

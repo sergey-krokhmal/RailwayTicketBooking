@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RailwayTicketBooking.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Route.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wagon.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departure_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Route.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wagon.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departure_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

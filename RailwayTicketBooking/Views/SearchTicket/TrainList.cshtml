@@ -1,0 +1,50 @@
+﻿@model List<RailwayTicketBooking.Models.TrainTicketViewModel>
+
+@{
+    ViewBag.Title = "Выбор поезда";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+}
+
+<h2>Выбор поезда</h2>
+    <div id="accordion">
+        @foreach (var item in Model)
+        {
+    
+            <h3>@item.DepTime | @item.Train.Code | @item.Train.Connection.Station1.Name - @item.Train.Connection.Station.Name <span style="float: right">@item.TicketCount мест</span></h3>
+            <div>
+                <table class="data_table">
+                    <tr>
+                        <td>
+                            @item.DepTime - @item.DepStation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @item.ArrTime - @item.ArrStation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Дата отправления: @item.DepDate
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            В пути: @item.DriveTime
+                        </td>
+                    </tr>
+                </table>
+                <a href="/SearchTicket/TicketList?trainCode=@item.Train.Code">
+<div class="link_button">Выбрать</div>
+</a>
+            </div>
+        }
+    </div>

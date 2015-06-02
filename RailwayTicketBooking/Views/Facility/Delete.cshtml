@@ -1,0 +1,32 @@
+﻿@model RailwayTicketBooking.Facility
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Facility</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descript)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descript)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discount)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,29 @@
+﻿@model RailwayTicketBooking.Facility
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Facility</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descript)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descript)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discount)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -12,15 +12,15 @@ namespace RailwayTicketBooking.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            if (Session["user"] == null)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return PartialView();
+                AccountManager am = new AccountManager();
+                LoggedUser lu = am.GetLoggedUserByLogin(HttpContext.User.Identity.Name);
+                return PartialView("_UserCard", lu);
             }
             else
             {
-
-                LoggedUser lu = (LoggedUser)Session["user"];
-                return PartialView("_UserCard", lu);
+                return PartialView();
             }
         }
 
@@ -42,7 +42,6 @@ namespace RailwayTicketBooking.Controllers
                     }
                     else
                     {
-                        Session["user"] = user;
                         FormsAuthentication.SetAuthCookie(loginData.Login, loginData.RememberMe);
                         msgTitle = "Вход выполнен";
                         msgBody = "Вы успешно вошли в систему";
@@ -64,9 +63,8 @@ namespace RailwayTicketBooking.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
-            if (Session["user"] != null)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                Session.Remove("user");
                 FormsAuthentication.SignOut();
             }
             return RedirectToAction("Index", "Home");
