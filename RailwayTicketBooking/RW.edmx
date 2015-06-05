@@ -9,6 +9,8 @@
           <EntitySet Name="Booking" EntityType="RailwayModel.Store.Booking" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Connection" EntityType="RailwayModel.Store.Connection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Facility" EntityType="RailwayModel.Store.Facility" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="RailwayModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Payments" EntityType="RailwayModel.Store.Payments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Route" EntityType="RailwayModel.Store.Route" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Station" EntityType="RailwayModel.Store.Station" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Ticket" EntityType="RailwayModel.Store.Ticket" store:Type="Tables" Schema="dbo" />
@@ -93,6 +95,24 @@
           <Property Name="Descript" Type="varchar(max)" Nullable="false" />
           <Property Name="Discount" Type="tinyint" Nullable="false" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Sum" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="Route">
           <Key>
             <PropertyRef Name="Id" />
@@ -152,7 +172,7 @@
           </Key>
           <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Discription" Type="varchar" MaxLength="150" />
+          <Property Name="Description" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Wagon">
           <Key>
@@ -393,6 +413,8 @@
             <End Role="Wagon_Type" EntitySet="Wagon_Type" />
             <End Role="Wagon" EntitySet="Wagon" />
           </AssociationSet>
+          <EntitySet Name="News" EntityType="RailwayModel.News" />
+          <EntitySet Name="Payments" EntityType="RailwayModel.Payments" />
         </EntityContainer>
         <EntityType Name="Booking">
           <Key>
@@ -499,8 +521,8 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Discription" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="User" Relationship="RailwayModel.FK_User_Role" FromRole="User_Role" ToRole="User" />
+          <Property Type="String" Name="Description" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Wagon">
           <Key>
@@ -681,6 +703,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Comment" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Sum" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -778,9 +818,9 @@
           <EntitySetMapping Name="User_Role">
             <EntityTypeMapping TypeName="RailwayModel.User_Role">
               <MappingFragment StoreEntitySet="User_Role">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Discription" ColumnName="Discription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -800,6 +840,26 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="RailwayModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="RailwayModel.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

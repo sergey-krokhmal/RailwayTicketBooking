@@ -28,6 +28,8 @@
         <AssociationConnector Association="RailwayModel.FK__Wagon__Id_Train__7FEAFD3E" ManuallyRouted="false" />
         <AssociationConnector Association="RailwayModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="RailwayModel.FK__Wagon__Id_Wagon___00DF2177" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RailwayModel.News" Width="1.5" PointX="5.4546954657205822" PointY="9.20017776321628" />
+        <EntityTypeShape EntityType="RailwayModel.Payments" Width="1.5" PointX="2.0618707826649167" PointY="22.783372412800496" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

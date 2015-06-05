@@ -159,6 +159,12 @@
     <Compile Include="Models\BusinessObjects\UserRole.cs" />
     <Compile Include="Models\SearchTicketViewModel.cs" />
     <Compile Include="Models\TrainTicketViewModel.cs" />
+    <Compile Include="News.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payments.cs">
+      <DependentUpon>RW.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\UserRoleProvider.cs" />
     <Compile Include="Route.cs">

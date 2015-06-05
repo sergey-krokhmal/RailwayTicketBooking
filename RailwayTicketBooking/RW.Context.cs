@@ -36,5 +36,7 @@ namespace RailwayTicketBooking
         public DbSet<User_Role> User_Role { get; set; }
         public DbSet<Wagon> Wagon { get; set; }
         public DbSet<Wagon_Type> Wagon_Type { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<Payments> Payments { get; set; }
     }
 }

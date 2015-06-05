@@ -12,17 +12,11 @@ namespace RailwayTicketBooking
     using System;
     using System.Collections.Generic;
     
-    public partial class User_Role
+    public partial class News
     {
-        public User_Role()
-        {
-            this.User = new HashSet<User>();
-        }
-    
-        public byte Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public System.DateTime Date { get; set; }
         public string Description { get; set; }
-    
-        public virtual ICollection<User> User { get; set; }
     }
 }
