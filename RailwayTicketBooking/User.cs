@@ -17,6 +17,7 @@ namespace RailwayTicketBooking
         public User()
         {
             this.Booking = new HashSet<Booking>();
+            this.Payments = new HashSet<Payments>();
         }
     
         public int Id { get; set; }
@@ -34,5 +35,6 @@ namespace RailwayTicketBooking
     
         public virtual ICollection<Booking> Booking { get; set; }
         public virtual User_Role User_Role { get; set; }
+        public virtual ICollection<Payments> Payments { get; set; }
     }
 }

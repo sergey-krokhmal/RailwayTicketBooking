@@ -105,7 +105,7 @@ button:hover {
 /*Styles for header elements*/
 
 header {
-    background: #71CD90;
+    background: #71CD90 url("/Content/Images/Tickets.png") no-repeat right top;
     height: 150px;
     width: 900px;
 }
@@ -169,13 +169,15 @@ header {
     height: auto;
     margin: 10px auto 0px;
 }
-
-#watch {
+.date_time {
+    background: #5194c1;
     margin: 10px auto 0px;
-    width: 100px;
+    width: auto;
     height: auto;
+    text-align:center;
     font-family: Tahoma;
-    text-shadow: 1px -1px -1px #333;
+    font-size: 14pt;
+    color:white;
 }
 
 #user_card {
@@ -219,11 +221,44 @@ header {
     border: 1px solid white;
     text-align: left;
     vertical-align: middle;
+    padding-left: 10px;
 }
 .table_header {
     color: white;
     background-color: #71CD90;
     border: double medium #206697;
+}
+.info_table {
+    font-family: Calibri;
+    color: #333;
+    font-size: 13pt;
+    font-weight: 500;
+    background-color: #e5f6f3;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.info_table td {
+    border: 1px solid #333;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.info_header
+{
+    color: #333;
+    background-color: #8ab4d0;
+    border: double medium #206697;
+}
+
+.place_number
+{
+    border: #333 solid thin;
+    width: 50px;
+    padding: 0 5px;
+    margin: 5px;
+    float: left;
 }
 
 /*Text styles*/
@@ -236,7 +271,6 @@ h1 {
     font-weight: bold;
     font-size: xx-large;
     color: white;
-    margin: 15px 10px;
     width: 200px;
     float: left;
 }
@@ -253,4 +287,6 @@ h3
     font-family: Calibri;
     font-size: 16pt;
     font-weight:100;
+    padding: 0px 10px;
+    margin: 0;
 }

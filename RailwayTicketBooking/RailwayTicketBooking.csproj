@@ -144,6 +144,7 @@
     <Compile Include="Controllers\AdminCrud\UserRoleController.cs" />
     <Compile Include="Controllers\AdminCrud\WagonController.cs" />
     <Compile Include="Controllers\AdminCrud\WagonTypeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\SearchTicketController.cs" />
     <Compile Include="Facility.cs">
       <DependentUpon>RW.tt</DependentUpon>
@@ -152,6 +153,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessObjects\AccountManager.cs" />
+    <Compile Include="Models\BusinessObjects\Payments\LiqPaySystem.cs" />
+    <Compile Include="Models\BusinessObjects\Payments\PaymentSystem.cs" />
+    <Compile Include="Models\BusinessObjects\Payments\Privat24System.cs" />
+    <Compile Include="Models\BusinessObjects\TicketSearcher.cs" />
     <Compile Include="Models\LoggedUser.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\BusinessObjects\Message.cs" />
@@ -159,6 +164,7 @@
     <Compile Include="Models\BusinessObjects\UserRole.cs" />
     <Compile Include="Models\SearchTicketViewModel.cs" />
     <Compile Include="Models\TrainTicketViewModel.cs" />
+    <Compile Include="Models\WagonTicketViewModel.cs" />
     <Compile Include="News.cs">
       <DependentUpon>RW.tt</DependentUpon>
     </Compile>
@@ -209,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Logo.png" />
+    <Content Include="Content\Images\Tickets.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

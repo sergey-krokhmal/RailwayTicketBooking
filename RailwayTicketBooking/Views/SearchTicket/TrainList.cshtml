@@ -1,4 +1,4 @@
-﻿@model List<RailwayTicketBooking.Models.TrainTicketViewModel>
+﻿@model IList<RailwayTicketBooking.Models.TrainTicketViewModel>
 
 @{
     ViewBag.Title = "Выбор поезда";
@@ -14,37 +14,68 @@
 }
 
 <h2>Выбор поезда</h2>
-    <div id="accordion">
-        @foreach (var item in Model)
-        {
-            <h3>@item.DepTime | @item.Train.Code | @item.Train.Connection.Station1.Name - @item.Train.Connection.Station.Name <span style="float: right">@item.TicketCount мест</span></h3>
-            <div>
-                <table class="data_table">
-                    <tr>
-                        <td>
-                            @item.DepTime - @item.DepStation
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @item.ArrTime - @item.ArrStation
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Дата отправления: @item.DepDate
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            В пути: @item.DriveTime
-                        </td>
-                    </tr>
-                </table>
-                @{Html.BeginForm("TicketList", "SearchTicket", FormMethod.Get);}
-                @Html.Hidden("trainCode", item.Train.Code);
-                <button type="submit" >Выбрать</button>
-                @{Html.EndForm();}
-            </div>
-        }
-    </div>
+<table class="info_table">
+    <tr>
+        <td colspan="2" class="info_header">
+            Данные для поиска билетов
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Отправление
+        </td>
+        <td>
+            @ViewBag.stvm.DepartureStation
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Прибытие
+        </td>
+        <td>
+            @ViewBag.stvm.ArrivalStation
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Дата отправления
+        </td>
+        <td>
+            @ViewBag.stvm.DepartureDate.ToShortDateString()
+        </td>
+    </tr>
+</table>
+<div id="accordion">
+    @foreach (var item in Model)
+    {
+        <h3>@item.DepTime | @item.Train.Code | @item.Train.Connection.Station1.Name - @item.Train.Connection.Station.Name <span style="float: right">@item.TicketCount мест</span></h3>
+        <div>
+            <table class="data_table">
+                <tr>
+                    <td>
+                        @item.DepTime - @item.DepStation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @item.ArrTime - @item.ArrStation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Дата отправления: @item.DepDate
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        В пути: @item.DriveTime
+                    </td>
+                </tr>
+            </table>
+            @{Html.BeginForm("TicketList", "SearchTicket", FormMethod.Get);}
+            @Html.Hidden("trainCode", (object)item.Train.Code)
+            <button type="submit">Выбрать</button>
+            @{Html.EndForm();}
+        </div>
+    }
+</div>

@@ -18,5 +18,9 @@ namespace RailwayTicketBooking
         public System.DateTime Date { get; set; }
         public string Comment { get; set; }
         public double Sum { get; set; }
+        public int Id_User { get; set; }
+        public string Pay_System { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

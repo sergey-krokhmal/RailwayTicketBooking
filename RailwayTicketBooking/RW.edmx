@@ -63,6 +63,10 @@
             <End Role="Wagon_Type" EntitySet="Wagon_Type" />
             <End Role="Wagon" EntitySet="Wagon" />
           </AssociationSet>
+          <AssociationSet Name="FK_Payments_User" Association="RailwayModel.Store.FK_Payments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="RailwayModel.Store.FK_User_Role">
             <End Role="User_Role" EntitySet="User_Role" />
             <End Role="User" EntitySet="User" />
@@ -112,6 +116,8 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Comment" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="Sum" Type="float" Nullable="false" />
+          <Property Name="Id_User" Type="int" Nullable="false" />
+          <Property Name="Pay_System" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Route">
           <Key>
@@ -337,6 +343,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Payments_User">
+          <End Role="User" Type="RailwayModel.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Payments" Type="RailwayModel.Store.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="User_Role" Type="RailwayModel.Store.User_Role" Multiplicity="1" />
           <End Role="User" Type="RailwayModel.Store.User" Multiplicity="*" />
@@ -415,6 +435,10 @@
           </AssociationSet>
           <EntitySet Name="News" EntityType="RailwayModel.News" />
           <EntitySet Name="Payments" EntityType="RailwayModel.Payments" />
+          <AssociationSet Name="FK_Payments_User" Association="RailwayModel.FK_Payments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Booking">
           <Key>
@@ -514,6 +538,7 @@
           <NavigationProperty Name="Booking" Relationship="RailwayModel.FK__Booking__Id_User__2610A626" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="User_Role" Relationship="RailwayModel.FK_User_Role" FromRole="User" ToRole="User_Role" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Payments" Relationship="RailwayModel.FK_Payments_User" FromRole="User" ToRole="Payments" />
         </EntityType>
         <EntityType Name="User_Role">
           <Key>
@@ -720,7 +745,24 @@
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
           <Property Type="String" Name="Comment" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="Sum" Nullable="false" />
+          <Property Type="Int32" Name="Id_User" Nullable="false" />
+          <Property Type="String" Name="Pay_System" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="RailwayModel.FK_Payments_User" FromRole="Payments" ToRole="User" />
         </EntityType>
+        <Association Name="FK_Payments_User">
+          <End Type="RailwayModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RailwayModel.Payments" Role="Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -856,6 +898,8 @@
           <EntitySetMapping Name="Payments">
             <EntityTypeMapping TypeName="RailwayModel.Payments">
               <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Pay_System" ColumnName="Pay_System" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Date" ColumnName="Date" />

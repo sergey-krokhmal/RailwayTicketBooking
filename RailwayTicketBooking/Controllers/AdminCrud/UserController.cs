@@ -17,7 +17,7 @@ namespace RailwayTicketBooking.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            return View(db.User.ToList());
+            return View(db.User.OrderBy(u => u.Id_User_Role).ToList());
         }
 
         [HttpGet]

@@ -1,8 +1,37 @@
-﻿@model string
-
+﻿@model RailwayTicketBooking.Models.WagonTicketViewModel
 @{
-    ViewBag.Title = "TicketList";
+    ViewBag.Title = "Выбор билетов";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model</h2>
+<h2>Выбор билетов</h2>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+}
+
+<div id="accordion">
+        @foreach (var item in ViewBag.Wts)
+        {
+            <h3>Вагон №@item.WagonNumber <span style="float: right">@item.TicketCount мест</span></h3>
+            <div>
+                
+                
+                @{Html.BeginForm("TicketList", "SearchTicket", FormMethod.Post);}
+                <input type="hidden" value="@item.WagonNumber" name="WagonNumber"/>
+                @foreach (int place in item.PlaceNumbers)
+                {
+                    <div class="place_number">
+                        @place
+                        <input type="checkbox" name="PlaceNumbers" value="@place" />
+                    </div>
+                }
+                <button type="submit">Выбрать</button>
+                @{Html.EndForm();}
+            </div>
+        }
+    </div>
